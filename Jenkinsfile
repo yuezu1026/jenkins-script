@@ -13,6 +13,11 @@ pipeline {
                 sh "printenv"
             }
         }
+        stage('Checkout'){
+            steps{
+                git branch 'main',url='https://github.com/yuezu1026/mock-client.git'
+            }
+        }
         stage('build'){
             steps{
                 sh 'mvn clean compile'
