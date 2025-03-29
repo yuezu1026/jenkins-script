@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    toos{
+        maven 'maven-3.8.6'
+    }
     stages{
         stage ('mcwtest') {
             steps {
