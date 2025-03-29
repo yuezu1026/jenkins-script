@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+        GREETING ="Hello"
+    }
     stages{
         stage("Hello"){
             steps{
@@ -14,6 +17,11 @@ pipeline {
         stage("Hello3"){
             steps{
                 echo "Hello world3"
+            }
+        }
+        stage("打招呼"){
+            steps{
+                sh 'echo "$GREETING $TITLE"'
             }
         }
     }
