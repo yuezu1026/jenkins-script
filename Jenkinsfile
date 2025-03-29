@@ -10,6 +10,11 @@ pipeline {
                 sh "printenv"
             }
         }
+        stage('build'){
+            steps{
+                sh 'mvn --version'
+            }
+        }
         stage('Example'){
             steps{
                 script {
