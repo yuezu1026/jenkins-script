@@ -1,6 +1,15 @@
 pipeline {
     agent any
     stages{
+        stage ('mcwtest') {
+            steps {
+                echo "Running ${env.BUILD_NUMBER} on ${env.JENKINS_URL}" // 方法一
+                echo "Running $env.BUILD_NUMBER on $env.JENKINS_URL" // 方法二
+                echo "Running ${BUILD_NUMBER} on ${JENKINS_URL}" // 方法三
+                echo "========>printenv:"
+                sh "printenv"
+            }
+        }
         stage('Example'){
             steps{
                 script {
