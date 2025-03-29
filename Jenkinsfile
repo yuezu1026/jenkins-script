@@ -17,4 +17,15 @@ pipeline {
             }
         }
     }
+    post{
+        aborted {
+            echo "构建被终止"
+        }
+        success {
+            echo "构建成功"
+        }
+        failure{
+            echo "构建失败"
+        }
+    }
 }
