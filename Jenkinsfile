@@ -29,7 +29,7 @@ pipeline {
         stage('Git pull') {
             steps {
                 // 下载代码
-                git credentialsId: '76d8bab0-4561-4373-a11d-b351e1e0536a', branch: "${params.BRANCH}", url: 'https://github.com/yuezu1026/mock-client.git'
+                git branch: 'main', credentialsId: '76d8bab0-4561-4373-a11d-b351e1e0536a', url: 'https://github.com/yuezu1026/mock-client.git'
             }
         }
         // stage('Checkout'){
