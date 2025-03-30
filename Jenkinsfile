@@ -1,3 +1,14 @@
+#!groovy
+
+String srcUrl = "${env.SrcUrl}"
+String BranchName = "${env.BranchName}"
+String buildType = "${env.buildType}"
+String buildShell = "${env.buildShell}"
+
+String workspace = "/opt/jenkins/workspace"
+
+String Sub_dir ="${env.Sub_dir}"
+
 pipeline {
     agent any
     tools{
@@ -16,6 +27,7 @@ pipeline {
         stage('Checkout'){
             steps{
                 git branch:'main',url:'https://github.com/yuezu1026/mock-client.git'
+                git clone git@github.com:yuezu1026
             }
         }
         stage('build'){
