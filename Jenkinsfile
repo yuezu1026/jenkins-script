@@ -1,6 +1,6 @@
 #!groovy
 
-def tools = new org.devops.tools()
+//def tools = new org.devops.tools()
 
 String srcUrl = "${env.SrcUrl}"
 String BranchName = "${env.BranchName}"
@@ -26,11 +26,17 @@ pipeline {
                 sh "printenv"
             }
         }
-        stage('Checkout'){
-            steps{
-                git branch:'main',url:'https://github.com/yuezu1026/mock-client.git'
+        stage('Git pull') {
+            steps {
+                // 下载代码
+                git credentialsId: '1639462c-7254-497a-b352-0fba485a0fcb', branch: "${params.BRANCH}", url: 'http://bitbucket.klvchen.com/scm/klvchen/klvchen.git'
             }
         }
+        // stage('Checkout'){
+        //     steps{
+        //         git branch:'main',url:'https://github.com/yuezu1026/mock-client.git'
+        //     }
+        // }
         stage('build'){
             steps{
                 sh 'mvn clean compile'
