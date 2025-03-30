@@ -1,5 +1,7 @@
 #!groovy
 
+def tools = new org.devops.tools()
+
 String srcUrl = "${env.SrcUrl}"
 String BranchName = "${env.BranchName}"
 String buildType = "${env.buildType}"
